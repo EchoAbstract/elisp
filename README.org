@@ -1,3 +1,5 @@
 * elisp
 
 My collection of misc elisp stuff
+
+[[https://travis-ci.org/EchoAbstract/elisp.svg?branch=master]]
