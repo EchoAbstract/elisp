@@ -1,4 +1,4 @@
-;;;dates.el --- Collection of date helpers -*- lexical-binding: t; -*-
+;;; dates.el --- Collection of date helpers -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2019 Brian Wilson <brian@polytopes.me>
 ;;
@@ -32,7 +32,7 @@
 (require 'cl-extra)
 
 (defun baw/gregorian-date-p (date)
-  "Return T if date looks Gregorian, else nil."
+  "Return T if DATE is Gregorian, else nil."
   (and (listp date)
        (= (length date) 3)
        (cl-every (lambda (component) (integerp component)) date)))
@@ -48,7 +48,7 @@
   (baw/add-days date (- days)))
 
 (defun baw/get-start-of-week (&optional date)
-  "Return the current week's starting day."
+  "Return the starting day of DATE's week or current week."
   (let* ((current-date (if date date (calendar-current-date)))
 	 (offset-from-start (calendar-day-of-week current-date)))
     (baw/subtract-days current-date offset-from-start)))
@@ -71,7 +71,7 @@
       (format "%02d:%02d:%02d" hour minute second))))
 
 (defun baw/formatted-date-time-string (&optional date time)
-  "Get a human readable (and verbose) version of the date and time."
+  "Get a human readable (and verbose) version of the DATE and TIME."
   (let ((ds (if date
 		(baw/formatted-date date)
 	      (baw/formatted-date)))
@@ -93,6 +93,6 @@
   (should (null (baw/gregorian-date-p (calendar-absolute-from-gregorian (calendar-current-date))))))
 
 (provide 'dates)
-;;;dates.el ends here
+;;; dates.el ends here
 
 
