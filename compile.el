@@ -25,6 +25,7 @@
 ;;; Code:
 
 
+(require 'seq)
 
 (defvar *build-filetype-plist*
   '("meson.build"
@@ -69,9 +70,9 @@
            (walk-tree-looking-for-build-files parent-dir stop-dir))))))
 
 
-(defun maybe-get-build-file (dir build-files)
-  "If no BUILD-FILES in DIR, nil, else (t . build-flle)."
-  (let ((got-one (has-build-file dir build-files)))
+(defun maybe-get-build-file (dir all-build-files)
+  "If no ALL-BUILD-FILES in DIR, nil, else (t . build-flle)."
+  (let ((got-one (has-build-file dir all-build-files)))
     (if got-one
         (cdr got-one)
       nil)))
@@ -99,4 +100,5 @@
 
 
 (provide 'compile)
+
 ;;; compile.el ends here
