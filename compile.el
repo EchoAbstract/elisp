@@ -92,11 +92,11 @@
 
 (require 'ert)
 
-(ert-deftest smoke ()
-  "Smoke tests"
-  (should (null (maybe-get-build-file "~/obsrc/flag/" *build-filetype-plist*)))
-  (should (equal "meson.build" (maybe-get-build-file "~/obsrc/sfu-provisioner/" *build-filetype-plist*)))
-  (should (equal "CMakeLists.txt" (maybe-get-build-file "~/obsrc/progress-bar-demo/" *build-filetype-plist*))))
+;; (ert-deftest smoke ()
+;;   "Smoke tests"
+;;   (should (null (maybe-get-build-file "~/obsrc/flag/" *build-filetype-plist*)))
+;;   (should (equal "meson.build" (maybe-get-build-file "~/obsrc/sfu-provisioner/" *build-filetype-plist*)))
+;;   (should (equal "CMakeLists.txt" (maybe-get-build-file "~/obsrc/progress-bar-demo/" *build-filetype-plist*))))
 
 
 (provide 'compile)
