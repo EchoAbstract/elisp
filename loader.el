@@ -1,6 +1,6 @@
 ;;; loader.el --- package to load all of my files    -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019  Brian Wilson
+;; Copyright (C) 2019, 2020  Brian Wilson
 
 ;; Author: Brian Wilson
 ;; Keywords: convenience
@@ -31,7 +31,6 @@
   '(compile)
   "Libraries that are not ready for general usage.")
 
-
 (defconst baw/elisp-load-directory
   (file-name-directory load-file-name)
   "The directory this file is located.")
@@ -43,10 +42,12 @@
   (add-to-list 'load-path baw/elisp-load-directory t)
 
   (dolist (lib *baw/ready-libraries*)
+    (message "Loading baw library: %s" lib)
     (require lib))
 
   (when experimental
     (dolist (lib *baw/experimental-libraries*)
+      (message "Loading experimental baw library: %s" lib)
       (require lib))))
 
 (provide 'loader)
